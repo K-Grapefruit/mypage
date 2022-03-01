@@ -142,7 +142,6 @@ const ToolImg1 = styled.div`
 
 const FortFolio = styled.div`
   padding: 350px 20% 350px 20%;
-  background-color: red;
 `;
 
 const FortFolio1 = styled.div`
@@ -167,6 +166,7 @@ const FortFolio2 = styled.div``;
 
 const FortFolio1Section = styled.div`
   display: flex;
+  margin-bottom: 30px;
 `;
 
 export function Home() {

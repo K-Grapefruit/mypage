@@ -1,5 +1,5 @@
 import { useAnimation, useViewportScroll, motion } from "framer-motion";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 
 const Wrapper = styled(motion.div)`
@@ -67,6 +67,7 @@ const HoverVariants = {
 
 export function Header() {
   const { scrollY } = useViewportScroll();
+
   const headerAnimation = useAnimation();
   useEffect(() => {
     scrollY.onChange(() => {
@@ -77,6 +78,7 @@ export function Header() {
       }
     });
   }, [scrollY, headerAnimation]);
+
   return (
     <Wrapper variants={HeaderVariants} animate={headerAnimation} exit="exit">
       <Nav>
