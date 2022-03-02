@@ -24,7 +24,7 @@ const section = [
 
 const Wrapper = styled.div`
   width: 100%;
-  height: 100vh;
+  min-height: 1000vh;
   min-width: 1300px;
 `;
 

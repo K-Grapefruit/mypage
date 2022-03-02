@@ -1,5 +1,6 @@
 import { useAnimation, useViewportScroll, motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import { useRouteMatch } from "react-router-dom";
 import styled from "styled-components";
 
 const Wrapper = styled(motion.div)`
@@ -67,7 +68,7 @@ const HoverVariants = {
 
 export function Header() {
   const { scrollY } = useViewportScroll();
-
+  const homematch = useRouteMatch("/");
   const headerAnimation = useAnimation();
   useEffect(() => {
     scrollY.onChange(() => {
@@ -78,50 +79,58 @@ export function Header() {
       }
     });
   }, [scrollY, headerAnimation]);
-
+  console.log(homematch);
   return (
-    <Wrapper variants={HeaderVariants} animate={headerAnimation} exit="exit">
-      <Nav>
-        <Li
-          onClick={() => {
-            window.scrollTo({ top: 0, behavior: "smooth" });
-          }}
-          variants={HoverVariants}
-          whileHover="Hover"
+    <>
+      {homematch ? (
+        <Wrapper
+          variants={HeaderVariants}
+          animate={headerAnimation}
+          exit="exit"
         >
-          HOME
-        </Li>
-        <Li
-          onClick={() => {
-            window.scrollTo({ top: 1000, behavior: "smooth" });
-          }}
-          variants={HoverVariants}
-          whileHover="Hover"
-        >
-          ABOUT ME
-        </Li>
-        <Li
-          onClick={() => {
-            window.scrollTo({ top: 2000, behavior: "smooth" });
-          }}
-          variants={HoverVariants}
-          whileHover="Hover"
-        >
-          SKILL
-        </Li>
-        <Li
-          onClick={() => {
-            window.scrollTo({ top: 3000, behavior: "smooth" });
-          }}
-          variants={HoverVariants}
-          whileHover="Hover"
-        >
-          PORTFOLIO
-        </Li>
-        <Li variants={HoverVariants} whileHover="Hover">
-          CONTACT
-        </Li>
-      </Nav>
-    </Wrapper>
+          <Nav>
+            <Li
+              onClick={() => {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
+              variants={HoverVariants}
+              whileHover="Hover"
+            >
+              HOME
+            </Li>
+            <Li
+              onClick={() => {
+                window.scrollTo({ top: 1000, behavior: "smooth" });
+              }}
+              variants={HoverVariants}
+              whileHover="Hover"
+            >
+              ABOUT ME
+            </Li>
+            <Li
+              onClick={() => {
+                window.scrollTo({ top: 2000, behavior: "smooth" });
+              }}
+              variants={HoverVariants}
+              whileHover="Hover"
+            >
+              SKILL
+            </Li>
+            <Li
+              onClick={() => {
+                window.scrollTo({ top: 3000, behavior: "smooth" });
+              }}
+              variants={HoverVariants}
+              whileHover="Hover"
+            >
+              PORTFOLIO
+            </Li>
+            <Li variants={HoverVariants} whileHover="Hover">
+              CONTACT
+            </Li>
+          </Nav>
+        </Wrapper>
+      ) : null}
+    </>
   );
 }

@@ -32,10 +32,25 @@ const PofPage2 = styled(motion.div)`
 const Overlay = styled(motion.div)`
   width: 100%;
   height: 100%;
+
   left: 0;
   top: 0;
   background-color: rgba(0, 0, 0, 0.7);
   position: fixed;
+`;
+
+const OverlayItem = styled(motion.div)`
+  position: absolute;
+  width: 40vw;
+  height: 80vh;
+  min-height: 600px;
+  top: 10%;
+  left: 0;
+  right: 0;
+
+  margin: 0 auto;
+  border-radius: 15px;
+  background-color: red;
 `;
 
 const Title = styled.h1``;
@@ -60,7 +75,11 @@ export function First() {
         <Site>사이트 방문</Site>
       </PofPage1>
       <PofPage2 onClick={() => goDetail("kakao")} bgphoto={kakao}></PofPage2>
-      <Overlay></Overlay>
+      {detailMatch ? (
+        <Overlay>
+          <OverlayItem></OverlayItem>
+        </Overlay>
+      ) : null}
     </PofPage>
   );
 }
