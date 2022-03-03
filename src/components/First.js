@@ -5,14 +5,41 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useLocation, useRouteMatch, useHistory } from "react-router-dom";
 
 const PofPage = styled.div`
-  display: flex;
   width: 100%;
-  justify-content: space-around;
   border: 1px solid black;
   border-radius: 30px;
   padding: 40px;
 `;
-const PofPage1 = styled.div`
+
+const PofFrame = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, minmax(200px, 1fr));
+  place-items: center;
+`;
+const Pf = styled.div`
+  width: 200px;
+  height: 200px;
+
+  position: relative;
+`;
+const Pic = styled(motion.div)`
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background-image: url(${(props) => props.photo});
+  border-radius: 100px;
+  cursor: pointer;
+`;
+const Title = styled.h1`
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: 0 auto;
+  text-align: center;
+  font-weight: 600;
+`;
+/* const PofPage1 = styled.div`
   width: 30%;
   display: flex;
   flex-direction: column;
@@ -57,29 +84,49 @@ const Title = styled.h1``;
 const Info = styled.p``;
 const Person = styled.h1``;
 
-const Site = styled.button``;
+const Site = styled.button``; */
 export function First() {
-  const detailMatch = useRouteMatch("/detail/:id");
+  /*  const detailMatch = useRouteMatch("/detail/:id");
   const location = useHistory();
-  const goDetail = (id) => location.push(`/detail/:${id}`);
+  const goDetail = (id) => location.push(`/detail/:${id}`); */
+
+  const goKakao = () => {
+    window.open("https://k-grapefruit.github.io/kokoa-clone-2020/");
+  };
+
+  const goPaintBox = () => {
+    window.open("https://k-grapefruit.github.io/paint-box/");
+  };
+
+  const yourName = () => {
+    window.open("https://k-grapefruit.github.io/scss_pj/");
+  };
 
   return (
     <PofPage>
-      <PofPage1>
-        <Title>TITLE : 카카오톡 Clone</Title>
-        <Info>
-          기존 PC카카오톡의 채팅방을 보고 HTML과 CSS만으로 구현한 포트폴리오
-          입니다.
-        </Info>
-        <Person>제작 : 개인제작</Person>
-        <Site>사이트 방문</Site>
-      </PofPage1>
-      <PofPage2 onClick={() => goDetail("kakao")} bgphoto={kakao}></PofPage2>
-      {detailMatch ? (
-        <Overlay>
-          <OverlayItem></OverlayItem>
-        </Overlay>
-      ) : null}
+      <PofFrame>
+        <Pf>
+          <Pic
+            onClick={() => goKakao()}
+            photo="https://file.mk.co.kr/meet/neds/2021/05/image_readtop_2021_471660_16211679464647166.jpg"
+          ></Pic>
+          <Title>KakaoTalk Clone</Title>
+        </Pf>
+        <Pf>
+          <Pic
+            onClick={() => goPaintBox()}
+            photo="https://is5-ssl.mzstatic.com/image/thumb/Purple114/v4/85/3c/b8/853cb810-73f8-f7c9-c495-4253728fc6bb/source/200x200bb.jpg"
+          ></Pic>
+          <Title>Paint-Box Clone</Title>
+        </Pf>
+        <Pf>
+          <Pic
+            onClick={() => yourName()}
+            photo="https://shopping-phinf.pstatic.net/main_8219720/82197203768.2.jpg?type=f200"
+          ></Pic>
+          <Title>Your name</Title>
+        </Pf>
+      </PofFrame>
     </PofPage>
   );
 }
