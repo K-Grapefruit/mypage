@@ -1,7 +1,9 @@
-import { useViewportScroll } from "framer-motion";
+import { motion, useViewportScroll } from "framer-motion";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { First } from "../components/First";
+import { Four } from "../components/Four";
+import { Three } from "../components/Three";
 import { Two } from "../components/Two.js";
 
 const section = [
@@ -16,9 +18,6 @@ const section = [
   },
   {
     tab: "REACT",
-  },
-  {
-    tab: "TYPESCRIPT",
   },
 ];
 
@@ -158,7 +157,7 @@ const FortFolioTab = styled.button`
   cursor: pointer;
   font-weight: 600;
 `;
-const FortFolioTabLi = styled.div`
+const FortFolioTabLi = styled(motion.div)`
   list-style: none;
   width: 100%;
 `;
@@ -185,6 +184,10 @@ export function Home() {
   };
 
   const { result, change, compo } = useTabs(0, section);
+
+  const aVariants = {
+    visible: {},
+  };
 
   return (
     <Wrapper>
@@ -267,6 +270,10 @@ export function Home() {
             {compo === 0 ? <First></First> : null}
           </FortFolioTabLi>
           <FortFolioTabLi>{compo === 1 ? <Two></Two> : null}</FortFolioTabLi>
+          <FortFolioTabLi>
+            {compo === 2 ? <Three></Three> : null}
+          </FortFolioTabLi>
+          <FortFolioTabLi>{compo === 3 ? <Four></Four> : null}</FortFolioTabLi>
         </FortFolio1>
         <FortFolio2></FortFolio2>
       </FortFolio>

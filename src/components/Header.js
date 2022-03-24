@@ -125,7 +125,13 @@ export function Header() {
             >
               PORTFOLIO
             </Li>
-            <Li variants={HoverVariants} whileHover="Hover">
+            <Li
+              onClick={() => {
+                window.scrollTo({ top: 4000, behavior: "smooth" });
+              }}
+              variants={HoverVariants}
+              whileHover="Hover"
+            >
               CONTACT
             </Li>
           </Nav>

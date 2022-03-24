@@ -85,17 +85,13 @@ const Info = styled.p``;
 const Person = styled.h1``;
 
 const Site = styled.button``; */
-export function Two() {
+export function Three() {
   /*  const detailMatch = useRouteMatch("/detail/:id");
   const location = useHistory();
   const goDetail = (id) => location.push(`/detail/:${id}`); */
 
   const goKakao = () => {
-    window.open("https://k-grapefruit.github.io/2021-vanilla-js/");
-  };
-
-  const goPaintBox = () => {
-    window.open("https://k-grapefruit.github.io/paintjs/");
+    window.open("https://kimtube.herokuapp.com/");
   };
 
   return (
@@ -104,16 +100,9 @@ export function Two() {
         <Pf>
           <Pic
             onClick={() => goKakao()}
-            photo="https://ai-i2.infcdn.net/icons_siandroid/png/200/15623/15623971.png"
+            photo="https://media.cdnandroid.com/item_images/31757/imagen-youtube-0thumb.jpg"
           ></Pic>
-          <Title>Todo App</Title>
-        </Pf>
-        <Pf>
-          <Pic
-            onClick={() => goPaintBox()}
-            photo="https://store-images.s-microsoft.com/image/apps.31793.13510798887943504.ab5675bc-52c9-4e8a-a56a-8c31831dcf83.0d376b2a-bd6c-43a4-9c11-24761e0442b7?mode=scale&q=90&h=200&w=200&background=%23FFFFFF"
-          ></Pic>
-          <Title>Paint</Title>
+          <Title>Youtube</Title>
         </Pf>
       </PofFrame>
     </PofPage>

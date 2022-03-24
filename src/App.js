@@ -9,7 +9,7 @@ import styled from "styled-components";
 import { Header } from "./components/Header";
 import { Detail } from "./routes/Detail";
 import { Home } from "./routes/Home";
-
+import { Footer } from "./components/Footer";
 function App() {
   return (
     <BrowserRouter>
@@ -22,6 +22,7 @@ function App() {
           <Home></Home>
         </Route>
       </Switch>
+      <Footer />
     </BrowserRouter>
   );
 }
