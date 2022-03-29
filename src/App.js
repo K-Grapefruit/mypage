@@ -15,12 +15,8 @@ function App() {
     <BrowserRouter>
       <Header />
       <Switch>
-        <Route exact path="/info">
-          <Detail></Detail>
-        </Route>
-        <Route exact path={["/", "/detail/:id"]}>
-          <Home></Home>
-        </Route>
+        <Route exact path="/" component={Home}></Route>
+        <Route exact path="/info" component={Detail}></Route>
       </Switch>
       <Footer />
     </BrowserRouter>
