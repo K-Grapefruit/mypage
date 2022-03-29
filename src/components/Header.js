@@ -127,7 +127,7 @@ export function Header() {
             </Li>
             <Li
               onClick={() => {
-                window.scrollTo({ top: 4000, behavior: "smooth" });
+                window.scrollTo({ top: 4200, behavior: "smooth" });
               }}
               variants={HoverVariants}
               whileHover="Hover"

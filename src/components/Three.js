@@ -6,7 +6,7 @@ import { useLocation, useRouteMatch, useHistory } from "react-router-dom";
 
 const PofPage = styled.div`
   width: 100%;
-  border: 1px solid black;
+
   border-radius: 30px;
   padding: 40px;
 `;

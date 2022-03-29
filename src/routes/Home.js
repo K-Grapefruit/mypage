@@ -168,6 +168,25 @@ const FortFolio1Section = styled.div`
   margin-bottom: 30px;
 `;
 
+const Contact = styled.div`
+  padding: 350px 0 350px 20%;
+  display: flex;
+  justify-content: space-between;
+`;
+const ContactText = styled.h1`
+  width: 50%;
+`;
+const ContactImg = styled.div`
+  background-image: url(${(props) => props.photo});
+  background-size: cover;
+  width: 500px;
+  height: 500px;
+  margin-right: 30px;
+  position: relative;
+`;
+
+const ContactText1 = styled.h1``;
+const ContactText2 = styled.h1``;
 export function Home() {
   const { scrollY } = useViewportScroll();
 
@@ -277,6 +296,27 @@ export function Home() {
         </FortFolio1>
         <FortFolio2></FortFolio2>
       </FortFolio>
+      <Contact>
+        <ContactText
+          style={{
+            position: "relative",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <ContactText1>
+            "트렌드가 빠르게 변하는 IT업계에서 항상 겸손하고 초심잃지 않는
+            개발자가 되겠습니다"
+          </ContactText1>
+          <ContactText2 style={{ position: "absolute" }}></ContactText2>
+        </ContactText>
+        <ContactImg photo="http://www.binumaru.net/shopimages/natural1111/024001000063.jpg?1578101546">
+          <h1 style={{ fontSize: 40, fontWeight: 600, position: "absolute" }}>
+            Contact
+          </h1>
+        </ContactImg>
+      </Contact>
     </Wrapper>
   );
 }
