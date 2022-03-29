@@ -1,5 +1,5 @@
 import {
-  BrowserRouter,
+  HashRouter as BrowserRouter,
   Route,
   Router,
   Switch,
@@ -15,8 +15,8 @@ function App() {
     <BrowserRouter>
       <Header />
       <Switch>
-        <Route exact path="/" component={Home}></Route>
         <Route exact path="/info" component={Detail}></Route>
+        <Route exact path="/" component={Home}></Route>
       </Switch>
       <Footer />
     </BrowserRouter>
