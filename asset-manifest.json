@@ -1,11 +1,11 @@
 {
   "files": {
-    "main.js": "/mypage/static/js/main.52cdf48b.js",
+    "main.js": "/mypage/static/js/main.50f62a44.js",
     "static/media/kakao.PNG": "/mypage/static/media/kakao.68465a441f920da6800f.PNG",
     "index.html": "/mypage/index.html",
-    "main.52cdf48b.js.map": "/mypage/static/js/main.52cdf48b.js.map"
+    "main.50f62a44.js.map": "/mypage/static/js/main.50f62a44.js.map"
   },
   "entrypoints": [
-    "static/js/main.52cdf48b.js"
+    "static/js/main.50f62a44.js"
   ]
 }
