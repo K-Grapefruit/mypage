@@ -23,7 +23,7 @@ const section = [
 
 const Wrapper = styled.div`
   width: 100%;
-  min-height: 1000vh;
+
   min-width: 1300px;
 `;
 
@@ -172,9 +172,12 @@ const Contact = styled.div`
   padding: 350px 0 350px 20%;
   display: flex;
   justify-content: space-between;
+  position: relative;
 `;
 const ContactText = styled.h1`
   width: 50%;
+  background-color: rgba(205, 132, 241, 0.2);
+  border-radius: 20px;
 `;
 const ContactImg = styled.div`
   background-image: url(${(props) => props.photo});
@@ -185,8 +188,30 @@ const ContactImg = styled.div`
   position: relative;
 `;
 
-const ContactText1 = styled.h1``;
-const ContactText2 = styled.h1``;
+const ContactText1 = styled.h1`
+  line-height: 2.5;
+  font-size: 18px;
+  font-weight: 600;
+`;
+const ContactText2 = styled.h1`
+  display: flex;
+  justify-content: center;
+  width: 100%;
+`;
+
+const GithubBtn = styled(motion.button)`
+  cursor: pointer;
+  padding: 20px;
+  background: transparent;
+  border: none;
+  border-radius: 10px;
+  position: absolute;
+  width: 200px;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+`;
 export function Home() {
   const { scrollY } = useViewportScroll();
 
@@ -195,6 +220,10 @@ export function Home() {
       console.log(scrollY.get());
     });
   }, [scrollY]);
+
+  let a = document.body.scrollTop;
+  a = document.body.scrollHeight;
+  console.log(a);
 
   const useTabs = (currentIndex, allTabs) => {
     const [current, setCurrent] = useState(currentIndex);
@@ -206,6 +235,12 @@ export function Home() {
 
   const aVariants = {
     visible: {},
+  };
+
+  const btnVariants = {
+    hover: {
+      backgroundColor: "#ffb8b8",
+    },
   };
 
   return (
@@ -307,9 +342,28 @@ export function Home() {
         >
           <ContactText1>
             "트렌드가 빠르게 변하는 IT업계에서 항상 겸손하고 초심잃지 않는
-            개발자가 되겠습니다"
+            개발자 ,
+            <p style={{ display: "flex", justifyContent: "center" }}>
+              <strong
+                style={{
+                  color: "#8c7ae6",
+                }}
+              >
+                김진욱
+              </strong>
+              이 되겠습니다"
+            </p>
+            <ContactText2>연락처 : doos1113@gmail.com 01098991306</ContactText2>
           </ContactText1>
-          <ContactText2 style={{ position: "absolute" }}></ContactText2>
+          <div>
+            <GithubBtn
+              onClick={() => window.open("https://github.com/K-Grapefruit")}
+              variants={btnVariants}
+              whileHover="hover"
+            >
+              GITHUB 바로가기
+            </GithubBtn>
+          </div>
         </ContactText>
         <ContactImg photo="http://www.binumaru.net/shopimages/natural1111/024001000063.jpg?1578101546">
           <h1 style={{ fontSize: 40, fontWeight: 600, position: "absolute" }}>

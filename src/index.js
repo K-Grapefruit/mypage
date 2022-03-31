@@ -31,7 +31,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
-  height:1000vh;
+  
   font-family: 'Noto Sans KR',sans-serif;
 }
 ol, ul {

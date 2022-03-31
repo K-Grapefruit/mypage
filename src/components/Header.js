@@ -23,11 +23,12 @@ const Nav = styled.nav`
 const Li = styled(motion.li)`
   font-size: 25px;
   cursor: pointer;
-  margin: 30px;
+
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 0 30px 0 30px;
 `;
 
 const HeaderVariants = {
@@ -62,7 +63,7 @@ const HeaderVariants = {
 
 const HoverVariants = {
   Hover: {
-    color: "#425A73",
+    backgroundColor: "#425A73",
   },
 };
 
@@ -70,6 +71,19 @@ export function Header() {
   const { scrollY } = useViewportScroll();
   const homematch = useRouteMatch("/");
   const headerAnimation = useAnimation();
+  const [updown, setUpdown] = useState(false);
+  const setDown = () => {
+    setUpdown(true);
+    window.scrollTo(0, document.body.scrollHeight, {
+      behavior: "smooth",
+    });
+  };
+  const setUp = () => {
+    setUpdown(false);
+    window.scrollTo(0, 0, {
+      behavior: "smooth",
+    });
+  };
   useEffect(() => {
     scrollY.onChange(() => {
       if (scrollY.get() > 80) {
@@ -134,6 +148,15 @@ export function Header() {
             >
               CONTACT
             </Li>
+            {updown ? (
+              <Li onClick={setUp} variants={HoverVariants} whileHover="Hover">
+                위로
+              </Li>
+            ) : (
+              <Li onClick={setDown} variants={HoverVariants} whileHover="Hover">
+                아래로
+              </Li>
+            )}
           </Nav>
         </Wrapper>
       ) : null}

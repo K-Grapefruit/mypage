@@ -1,5 +1,5 @@
 import {
-  HashRouter as BrowserRouter,
+  BrowserRouter,
   Route,
   Router,
   Switch,
@@ -15,8 +15,12 @@ function App() {
     <BrowserRouter>
       <Header />
       <Switch>
-        <Route exact path="/info" component={Detail}></Route>
-        <Route exact path="/" component={Home}></Route>
+        <Route exact path="/info">
+          <Detail></Detail>
+        </Route>
+        <Route exact path={["/", "/mypage"]}>
+          <Home></Home>
+        </Route>
       </Switch>
       <Footer />
     </BrowserRouter>
